@@ -1,3 +1,11 @@
+# Hidden files
+.*
+
+
+# Vim swp files
+*.swp
+*.swo
+
 # Logs
 logs
 *.log
