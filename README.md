@@ -1,2 +1,2 @@
-# node-hello
-Learning node.js
+# react-hello
+Learning node.js & React
