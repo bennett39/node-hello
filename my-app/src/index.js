@@ -122,13 +122,13 @@ class Game extends Component {
         
         return (
             <div className="game container">
-                <div className="game-board">
+                <div className="game-board container">
                     <Board 
                         squares={current.squares}
                         onClick={(i) => this.handleClick(i)}
                     />
                 </div>
-                <div className="game-info">
+                <div className="game-info container">
                     <div className="h3">{status}</div>
                     <ol>{moves}</ol>
                 </div>
@@ -139,8 +139,8 @@ class Game extends Component {
 
 function Navbar(props) {
     return (
-        <ul className="nav">
-            <li className="nav-item">
+        <ul className="nav nav-pills justify-content-center">
+            <li className="nav-item active">
                 <a className="nav-link" href="https://bennettgarner.com">A React game by Bennett Garner</a>
             </li>
         </ul>
