@@ -95,10 +95,14 @@ class Game extends Component {
                     (move % 2 === 0 ? 'O @ ' : 'X @ ') + 
                     history[move].lastMove :
                 'Go to game start';
+            let buttonClasses = "m-2 btn btn-";
+            move ? 
+                buttonClasses += "secondary" :
+                buttonClasses += "primary";
             return (
                 <li key={move}>
                     <button 
-                        className="btn btn-primary" 
+                        className={buttonClasses}
                         onClick={() => this.jumpTo(move)}>
                         {desc}
                     </button>
