@@ -129,6 +129,7 @@ class Game extends Component {
             <div className="row">
                 <div className="col-sm-6">
                     <Board 
+                        className="mx-auto"
                         squares={current.squares}
                         onClick={(i) => this.handleClick(i)}
                     />
@@ -145,17 +146,16 @@ class Game extends Component {
 
 function Navbar(props) {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-info">
-          <span className="navbar-brand">Tic Tac Toe: A React Game</span>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse">
-            <div className="navbar-nav">
-              <a className="nav-item nav-link" href="https://www.bennettgarner.com">By Bennett Garner</a>
-              <a className="nav-item nav-link" href="https://github.com/bennett39/react-hello">On GitHub</a>
+        <nav className="navbar navbar-expand-sm navbar-dark bg-info">
+            <span className="navbar-brand">
+                Tic Tac Toe: A React Game
+            </span>
+            <div>
+                <div className="navbar-nav">
+                  <a className="nav-item nav-link" href="https://www.bennettgarner.com">By Bennett Garner</a>
+                  <a className="nav-item nav-link" href="https://github.com/bennett39/react-hello">On GitHub</a>
+                </div>
             </div>
-          </div>
         </nav>
     );
 }
