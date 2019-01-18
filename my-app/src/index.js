@@ -137,10 +137,23 @@ class Game extends Component {
     }
 }
 
+function Navbar(props) {
+    return (
+        <ul className="nav">
+            <li className="nav-item">
+                <a className="nav-link" href="https://bennettgarner.com">A React game by Bennett Garner</a>
+            </li>
+        </ul>
+    );
+}
+
 class Site extends Component {
     render() {
         return (
-            <Game />
+            <div>
+                <Navbar />
+                <Game />
+            </div>
         );
     }
 }
