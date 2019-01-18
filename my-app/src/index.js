@@ -16,6 +16,7 @@ class Board extends Component {
     renderSquare(i) {
         return (
             <Square 
+                key={i}
                 value={this.props.squares[i]}
                 onClick={() => this.props.onClick(i)}
             />
@@ -30,7 +31,7 @@ class Board extends Component {
             for (let j = 0; j < 3; j++) {
                 squares.push(this.renderSquare(i*3+j));
             }
-            board.push(<div className="board-row">{squares}</div>);
+            board.push(<div key={i} className="board-row">{squares}</div>);
         }
 
         return board;
@@ -95,10 +96,12 @@ class Game extends Component {
                     (move % 2 === 0 ? 'O @ ' : 'X @ ') + 
                     history[move].lastMove :
                 'Go to game start';
+
             let buttonClasses = "m-2 btn btn-";
             move ? 
                 buttonClasses += "secondary" :
                 buttonClasses += "primary";
+
             return (
                 <li key={move}>
                     <button 
@@ -134,10 +137,18 @@ class Game extends Component {
     }
 }
 
+class Site extends Component {
+    render() {
+        return (
+            <Game />
+        );
+    }
+}
+
 // ========================================
 
 ReactDOM.render(
-  <Game />,
+  <Site />,
     document.getElementById('root')
     );
 
