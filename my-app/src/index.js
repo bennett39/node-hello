@@ -97,7 +97,11 @@ class Game extends Component {
                 'Go to game start';
             return (
                 <li key={move}>
-                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <button 
+                        className="btn btn-primary" 
+                        onClick={() => this.jumpTo(move)}>
+                        {desc}
+                    </button>
                 </li>
             );
         });
@@ -118,7 +122,7 @@ class Game extends Component {
                     />
                 </div>
                 <div className="game-info">
-                    <div>{status}</div>
+                    <div className="h3">{status}</div>
                     <ol>{moves}</ol>
                 </div>
             </div>
