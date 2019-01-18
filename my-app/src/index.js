@@ -31,7 +31,11 @@ class Board extends Component {
             for (let j = 0; j < 3; j++) {
                 squares.push(this.renderSquare(i*3+j));
             }
-            board.push(<div key={i} className="board-row">{squares}</div>);
+            board.push(
+                <div key={i} className="board-row row">
+                    {squares}
+                </div>
+            );
         }
 
         return board;
@@ -97,7 +101,7 @@ class Game extends Component {
                     history[move].lastMove :
                 'Go to game start';
 
-            let buttonClasses = "m-2 btn btn-";
+            let buttonClasses = "m-2 btn btn-sm btn-";
             move ? 
                 buttonClasses += "secondary" :
                 buttonClasses += "primary";
@@ -122,16 +126,18 @@ class Game extends Component {
         
         return (
             <div className="game container">
-                <div className="game-board container">
+            <div className="row">
+                <div className="col-sm-6">
                     <Board 
                         squares={current.squares}
                         onClick={(i) => this.handleClick(i)}
                     />
                 </div>
-                <div className="game-info container">
-                    <div className="h3">{status}</div>
+                <div className="col-sm-6">
+                    <div className="lead mt-3">{status}</div>
                     <ol>{moves}</ol>
                 </div>
+            </div>
             </div>
         );
     }
@@ -139,11 +145,26 @@ class Game extends Component {
 
 function Navbar(props) {
     return (
-        <ul className="nav nav-pills justify-content-center">
-            <li className="nav-item active">
-                <a className="nav-link" href="https://bennettgarner.com">A React game by Bennett Garner</a>
-            </li>
-        </ul>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-info">
+          <span className="navbar-brand">Tic Tac Toe: A React Game</span>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse">
+            <div className="navbar-nav">
+              <a className="nav-item nav-link" href="https://www.bennettgarner.com">By Bennett Garner</a>
+              <a className="nav-item nav-link" href="https://github.com/bennett39/react-hello">On GitHub</a>
+            </div>
+          </div>
+        </nav>
+    );
+}
+
+function Instructions(props) {
+    return (
+        <div className="container p-2">
+        <p>Click the squares to make a move. Get three in a row to win!</p>
+        </div>
     );
 }
 
@@ -152,6 +173,7 @@ class Site extends Component {
         return (
             <div>
                 <Navbar />
+                <Instructions />
                 <Game />
             </div>
         );
